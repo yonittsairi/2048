@@ -49,9 +49,6 @@ export class PlayComponent implements OnInit {
 
         mat[i][j] = { isMerged: false, moved: false, value: 0 }
       }
-
-
-
     }
     return mat
   }
@@ -60,41 +57,41 @@ export class PlayComponent implements OnInit {
   onKeyDown(ev: KeyboardEvent, mat = this.mat,) {
     if (ev.key === "ArrowDown") {
       this.printMatDown()
-      this.generate()
-      this.mat = this.printMat(this.array, 0)
-      this.checkWin()
-
     }
     else if (ev.key === "ArrowUp") {
       this.printMatUp()
-      this.generate()
-      this.mat = this.printMat(this.array, 0)
-      this.checkWin()
-
     } else if (ev.key === "ArrowLeft") {
       this.printMatLeft()
-      this.generate()
-      this.mat = this.printMat(this.array, 0)
-      this.checkWin()
-
     }
     else if (ev.key === "ArrowRight") {
       this.printMatRight()
-      this.generate()
-      this.mat = this.printMat(this.array, 0)
-      this.checkWin()
-
     }
-
+    this.generate()
+    this.mat = this.printMat(this.array, 0)
+    this.checkWin()
   }
 
   printMatDown = () => {
     for (let colIdx = 0; colIdx <= this.array.length - 1; colIdx++) {
-      this.countInCol(this.array, colIdx)
+      this.moveDown(this.array, colIdx)
     }
   }
-
-  countInCol = (board, colIdx) => {
+  printMatUp = () => {
+    for (let colIdx = 0; colIdx <= this.array.length - 1; colIdx++) {
+      this.moveUp(this.array, colIdx)
+    }
+  }
+  printMatLeft = () => {
+    for (let rowIdx = 0; rowIdx <= this.array.length - 1; rowIdx++) {
+      this.moveLeft(this.array, rowIdx)
+    }
+  }
+  printMatRight = () => {
+    for (let rowIdx = 0; rowIdx <= this.array.length - 1; rowIdx++) {
+      this.moveRight(this.array, rowIdx)
+    }
+  }
+  moveDown = (board, colIdx) => {
     var zero = 0
     for (let i = 0; i <= board.length - 1; i++) {
       zero += board[i][colIdx].value
@@ -124,13 +121,9 @@ export class PlayComponent implements OnInit {
 
   }
 
-  printMatUp = () => {
-    for (let colIdx = 0; colIdx <= this.array.length - 1; colIdx++) {
-      this.countInColUp(this.array, colIdx)
-    }
-  }
 
-  countInColUp = (board, colIdx) => {
+
+  moveUp = (board, colIdx) => {
 
     var zero = 0
     for (let i = 0; i <= board.length - 1; i++) {
@@ -158,13 +151,9 @@ export class PlayComponent implements OnInit {
     }
   }
 
-  printMatLeft = () => {
-    for (let rowIdx = 0; rowIdx <= this.array.length - 1; rowIdx++) {
-      this.countInRowLeft(this.array, rowIdx)
-    }
-  }
 
-  countInRowLeft = (board, rowIdx) => {
+
+  moveLeft = (board, rowIdx) => {
     var zero = 0
     var count = []
     for (let i = 0; i <= board.length - 1; i++) {
@@ -192,13 +181,9 @@ export class PlayComponent implements OnInit {
       }
     }
   }
-  printMatRight = () => {
-    for (let rowIdx = 0; rowIdx <= this.array.length - 1; rowIdx++) {
-      this.countInRowRight(this.array, rowIdx)
-    }
-  }
 
-  countInRowRight = (board, rowIdx) => {
+
+  moveRight = (board, rowIdx) => {
     var zero = 0
     var count = []
     for (let i = 0; i <= board.length - 1; i++) {
