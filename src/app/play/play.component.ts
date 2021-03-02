@@ -131,6 +131,7 @@ export class PlayComponent implements OnInit {
   }
 
   countInColUp = (board, colIdx) => {
+
     var zero = 0
     for (let i = 0; i <= board.length - 1; i++) {
       zero += board[i][colIdx].value
@@ -263,7 +264,7 @@ export class PlayComponent implements OnInit {
   }
 
   checkWin() {
-    var count = 0
+    var count = -1
     for (let i = 0; i < this.array.length - 1; i++) {
       for (let j = 0; j < this.array.length - 1; j++) {
         if (this.array[i].includes(0) === true) {

@@ -1,0 +1,17 @@
+img {
+    border-radius: 50%;
+    width: 400px;
+    // padding: auto;
+    margin: 5px;
+}
+section {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    p {
+        padding: 15px;
+        max-width: 450px;
+    }
+}

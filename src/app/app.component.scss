@@ -5,5 +5,11 @@ nav {
         color: white;
         padding: 5px 10px;
         // margin: ;
+        &:active {
+            background-color: rgb(42, 11, 126);
+        }
+        &:hover {
+            background-color: rgb(42, 11, 126);
+        }
     }
 }
